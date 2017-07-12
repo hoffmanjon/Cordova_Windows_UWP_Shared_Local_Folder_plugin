@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="com-myfuelmaster-file-save" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>CACLoginPlugin</name>
+    <js-module name="FileSavePlugin" src="www/FileSavePlugin.js">
+        <clobbers target="FileSavePlugin" />
+    </js-module>
+
+
+    <!--  Android -->
+    <platform name="android">
+        <config-file target="config.xml" parent="/*">
+            <feature name="FileSavePlugin">
+                <param name="android-package" value="com.myfuelmaster.plugin.FileSavePlugin"/>
+            </feature>
+        </config-file>
+        <source-file src="src/android/com/myfuelmaster/plugin/FileSavePlugin.java" 
+        target-dir="src/com/myfuelmaster/plugin" />
+     </platform>
+
+<!-- iOS -->
+     <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="FileSavePlugin">
+             <param name="ios-package" value="FileSavePlugin" />
+            </feature>
+        </config-file>
+        <source-file src="src/ios/FileSavePlugin.swift" />
+    </platform>
+
+<!-- Windows -->
+    <platform name="windows">
+
+        <js-module src="src/windows/FileSavePluginProxy.js" name="FileSavePluginProxy">
+            <merges target="" />
+        </js-module>
+        
+    </platform>  
+</plugin>
